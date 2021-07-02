@@ -2,7 +2,6 @@ a = true
 RegisterCommand("holograms", function(source, args, raw)
 		if a == true then
 		msg('^1Disabled Holograms')
-		
 		a = false
 		return;
 	else 
@@ -11,38 +10,26 @@ RegisterCommand("holograms", function(source, args, raw)
 	end
 end)
 
-
-
 Citizen.CreateThread(function()
     Holograms()
      TriggerEvent('chat:addSuggestion', '/holograms', 'Toggles holograms across the server', {
-})
-        
-	
+})    	
 end)
-
-
 
 function msg(text)
 	TriggerEvent("chatMessage", "[SYSTEM]", { 18, 243, 255}, text)
 end
 
-
 function Holograms()
-
 	while true do
 		Citizen.Wait(0)	
 		if a then
-
 		if GetDistanceBetweenCoords( -1048.56, -2842.00, 35.87, GetEntityCoords(GetPlayerPed(-1))) < 20.0 then
 			Draw3DText( -1048.72, -2845.00, 35.7  -2.6, "~r~Example Hologram", 4, 0.1, 0.1)
-			
 		end		    
-			   
 		end
 	end
 end
-
 
 function Draw3DText(x,y,z,textInput,fontId,scaleX,scaleY)
 	local px,py,pz=table.unpack(GetGameplayCamCoords())
